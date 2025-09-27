@@ -1,0 +1,39 @@
+scalar Date
+type Customer {
+    id: ID!
+    name: String!
+    email: String!
+}
+type Policy {
+    id: ID!
+    number: String!
+    type: String!
+    premium: Float!
+    startDate: Date!
+    customer: Customer!
+}
+type Query {
+    health: String!
+    policies(search: String, limit: Int = 25, offset: Int = 0): [Policy!]!
+    policy(id: ID!): Policy
+}
+input PolicyInput {
+    number: String!
+    type: String!
+    premium: Float!
+    startDate: Date!
+    customerId: ID!
+}
+
+input PolicyUpdateInput {
+    number: String
+    type: String
+    premium: Float
+    startDate: Date
+    customerId: ID
+}
+type Mutation {
+    createPolicy(input: PolicyInput!): Policy!
+    updatePolicy(id: ID!, input: PolicyUpdateInput!): Policy!
+    deletePolicy(id: ID!): Boolean!
+}

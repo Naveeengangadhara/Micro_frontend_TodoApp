@@ -1,0 +1,19 @@
+{
+    "name": "nm-graphql-api",
+    "type": "module",
+    "scripts": {
+        "dev": "nodemon --watch src --exec node src/index.js",
+        "start": "node src/index.js"
+    },
+    "dependencies": {
+        "@apollo/server": "^4.11.0",
+        "body-parser": "^1.20.3",
+        "cors": "^2.8.5",
+        "dotenv": "^16.4.5",
+        "express": "^4.19.2",
+        "graphql": "^16.9.0"
+    },
+    "devDependencies": {
+        "nodemon": "^3.1.0"
+    }
+}

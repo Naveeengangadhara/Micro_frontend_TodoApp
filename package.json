@@ -1,0 +1,21 @@
+{
+  "name": "nm-mfe-graphql-demo",
+  "private": true,
+  "workspaces": [
+    "server",
+    "mf-host",
+    "mf-catalog",
+    "mf-admin"
+  ],
+  "scripts": {
+    "postinstall": "npm -ws run build:types || echo skip",
+    "dev:server": "npm --workspace server run dev",
+    "dev:host": "npm --workspace mf-host run dev",
+    "dev:catalog": "npm --workspace mf-catalog run dev",
+    "dev:admin": "npm --workspace mf-admin run dev",
+    "dev": "concurrently -n api,host,catalog,admin -c blue,magenta,green,yellow\"npm:dev:server\" \"npm:dev:host\" \"npm:dev:catalog\" \"npm:dev:admin\""
+  },
+  "devDependencies": {
+    "concurrently": "^9.0.0"
+  }
+}
